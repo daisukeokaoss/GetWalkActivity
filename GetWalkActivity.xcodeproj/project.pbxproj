@@ -12,6 +12,7 @@
 		703DD5EC21606BC5003CA798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703DD5EA21606BC5003CA798 /* Main.storyboard */; };
 		703DD5EE21606BC6003CA798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 703DD5ED21606BC6003CA798 /* Assets.xcassets */; };
 		703DD5F121606BC6003CA798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703DD5EF21606BC6003CA798 /* LaunchScreen.storyboard */; };
+		703DD5FA21606BE2003CA798 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703DD5F921606BE2003CA798 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		703DD5ED21606BC6003CA798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		703DD5F021606BC6003CA798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		703DD5F221606BC6003CA798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		703DD5F921606BE2003CA798 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703DD5FA21606BE2003CA798 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				703DD5E521606BC5003CA798 /* GetWalkActivity */,
 				703DD5E421606BC5003CA798 /* Products */,
+				703DD5F821606BE2003CA798 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				703DD5F221606BC6003CA798 /* Info.plist */,
 			);
 			path = GetWalkActivity;
+			sourceTree = "<group>";
+		};
+		703DD5F821606BE2003CA798 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				703DD5F921606BE2003CA798 /* CoreMotion.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
