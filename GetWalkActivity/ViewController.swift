@@ -18,29 +18,37 @@ class ViewController: UIViewController {
     }
 
     @IBAction func getWalk(_ sender: Any) {
+        
+        
+        let pedometer:CMPedometer = CMPedometer()
         if(!CMPedometer.isStepCountingAvailable()) {
             print("cannot get stepcount")
         }
+        //let now = Date()
         
-        let pedometer:CMPedometer = CMPedometer()
+        //let oneWeekAgo = Date(timeIntervalSinceNow:604800)
         
-        let now = Date()
+        let now:NSDate = NSDate()
+        let formatter:DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let from:NSDate = self.stringToDate(date: formatter.string(from: now as Date), isStart: true)
+        let to:NSDate = self.stringToDate(date: formatter.string(from: now as Date), isStart: false)
         
-        let oneWeekAgo = Date(timeInterval: 604800, since: now as Date)
-        
-        pedometer.queryPedometerData(from: oneWeekAgo, to: now, withHandler: {(pedometerData:CMPedometerData!, error:NSError!) in
-            //print("\(pedometerData.numberOfSteps)") // 歩数
+        pedometer.queryPedometerData(from: from as Date, to: to as Date, withHandler: {(pedometerData:CMPedometerData!, error:NSError!) in
+            print("\(pedometerData.numberOfSteps)") // 歩数
             //print("\(pedometerData.distance)") // 距離
             //print("\(pedometerData.floorsAscended)") // 上った回数
             //print("\(pedometerData.floorsDescended)")
             
             
             } as! CMPedometerHandler)
-        
-
-        
+    }
     
-
+    private func stringToDate(date: String, isStart: Bool) -> NSDate {
+        let timestamp = (isStart) ? date + " 00:00:00" : date + " 23:59:59"
+        let formatter:DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.date(from: timestamp)! as NSDate
     }
     
 }
