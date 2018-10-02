@@ -24,18 +24,15 @@ class ViewController: UIViewController {
         if(!CMPedometer.isStepCountingAvailable()) {
             print("cannot get stepcount")
         }
-        //let now = Date()
+        let from = Date(timeIntervalSinceNow: 10000)
+        let to = Date()
         
-        //let oneWeekAgo = Date(timeIntervalSinceNow:604800)
-        
-        let now:NSDate = NSDate()
-        let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let from:NSDate = self.stringToDate(date: formatter.string(from: now as Date), isStart: true)
-        let to:NSDate = self.stringToDate(date: formatter.string(from: now as Date), isStart: false)
-        
-        pedometer.queryPedometerData(from: from as Date, to: to as Date, withHandler: {(pedometerData, error) in
-            print("\(pedometerData?.numberOfSteps)") // 歩数
+        pedometer.queryPedometerData(from: from, to: to, withHandler: {(pedometerData, error) in
+            
+            DispatchQueue.main.async {
+                print("\(pedometerData!.numberOfSteps)")
+            }
+            //print("\(pedometerData!.numberOfSteps)") // 歩数
             //print("\(pedometerData.distance)") // 距離
             //print("\(pedometerData.floorsAscended)") // 上った回数
             //print("\(pedometerData.floorsDescended)")
