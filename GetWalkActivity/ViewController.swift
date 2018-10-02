@@ -34,14 +34,14 @@ class ViewController: UIViewController {
         let from:NSDate = self.stringToDate(date: formatter.string(from: now as Date), isStart: true)
         let to:NSDate = self.stringToDate(date: formatter.string(from: now as Date), isStart: false)
         
-        pedometer.queryPedometerData(from: from as Date, to: to as Date, withHandler: {(pedometerData:CMPedometerData!, error:NSError!) in
-            print("\(pedometerData.numberOfSteps)") // 歩数
+        pedometer.queryPedometerData(from: from as Date, to: to as Date, withHandler: {(pedometerData, error) in
+            print("\(pedometerData?.numberOfSteps)") // 歩数
             //print("\(pedometerData.distance)") // 距離
             //print("\(pedometerData.floorsAscended)") // 上った回数
             //print("\(pedometerData.floorsDescended)")
             
             
-            } as! CMPedometerHandler)
+            })
     }
     
     private func stringToDate(date: String, isStart: Bool) -> NSDate {
