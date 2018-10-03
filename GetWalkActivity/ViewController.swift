@@ -16,23 +16,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    let pedometer:CMPedometer = CMPedometer()
 
     @IBAction func getWalk(_ sender: Any) {
         
         
-        let pedometer:CMPedometer = CMPedometer()
+        
         if(!CMPedometer.isStepCountingAvailable()) {
             print("cannot get stepcount")
         }
-        let from = Date(timeIntervalSinceNow: 10000)
+        let from = Date(timeIntervalSinceNow: -10000)
         let to = Date()
         
         pedometer.queryPedometerData(from: from, to: to, withHandler: {(pedometerData, error) in
-            
-            DispatchQueue.main.async {
-                print("\(pedometerData!.numberOfSteps)")
-            }
-            //print("\(pedometerData!.numberOfSteps)") // 歩数
+            print("\(pedometerData!.numberOfSteps)")
             //print("\(pedometerData.distance)") // 距離
             //print("\(pedometerData.floorsAscended)") // 上った回数
             //print("\(pedometerData.floorsDescended)")
