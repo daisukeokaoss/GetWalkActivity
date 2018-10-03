@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="getWalk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OX3-BD-pGi"/>
+                                    <action selector="getStepCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OX3-BD-pGi"/>
                                 </connections>
                             </button>
                         </subviews>

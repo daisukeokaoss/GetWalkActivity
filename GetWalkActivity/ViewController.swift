@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     let pedometer:CMPedometer = CMPedometer()
 
-    @IBAction func getWalk(_ sender: Any) {
+    @IBAction func getStepCount(_ sender: Any) {
         
         
         
@@ -30,21 +30,13 @@ class ViewController: UIViewController {
         let to = Date()
         
         pedometer.queryPedometerData(from: from, to: to, withHandler: {(pedometerData, error) in
-            print("\(pedometerData!.numberOfSteps)")
-            //print("\(pedometerData.distance)") // 距離
-            //print("\(pedometerData.floorsAscended)") // 上った回数
-            //print("\(pedometerData.floorsDescended)")
+            print("歩数は\(pedometerData!.numberOfSteps)")
+            print("距離は\(String(describing: pedometerData?.distance))") // 距離
+            print("登った回数\(String(describing: pedometerData?.floorsAscended))") // 上った回数
+            print("降った回数\(String(describing: pedometerData?.floorsDescended))")
             
             
             })
     }
-    
-    private func stringToDate(date: String, isStart: Bool) -> NSDate {
-        let timestamp = (isStart) ? date + " 00:00:00" : date + " 23:59:59"
-        let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return formatter.date(from: timestamp)! as NSDate
-    }
-    
 }
 
